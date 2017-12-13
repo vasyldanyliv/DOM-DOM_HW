@@ -1,0 +1,20 @@
+
+.download-message {
+    display: none;
+}
+
+
+a{
+    font-size: 20px;
+    color: lightcoral;
+}
+
+a:hover {
+    color: greenyellow;
+}
+
+body{
+    background: lightgoldenrodyellow;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
