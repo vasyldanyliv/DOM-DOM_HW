@@ -2,7 +2,7 @@
         var addUser = (function () {
             var m = {};
         var form = document.createElement('form');
-        // form.action = 'google.com';
+        form.action = 'google.com';
         form.name = 'login';
         document.body.appendChild(form);
 
