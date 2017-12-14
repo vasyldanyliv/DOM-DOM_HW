@@ -111,6 +111,11 @@
         }
             effect();
 
+             // clear fields after confirmation
+            Date_t.value = null;
+            UserName.value = null;
+            Age.value = null;
+
             click.preventDefault();
         }
         return m;
