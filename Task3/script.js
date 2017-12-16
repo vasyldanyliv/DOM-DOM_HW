@@ -14,4 +14,3 @@ for (var key in navigatorMessageMap) {
         var nameOfVersion = document.querySelector('[data-version='+version+']').style.display= 'block';
     }
 }
-

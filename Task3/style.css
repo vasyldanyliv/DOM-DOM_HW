@@ -1,4 +1,8 @@
 
+*{
+    margin:0;
+}
+
 .download-message {
     display: none;
 }
@@ -15,6 +19,22 @@ a:hover {
 
 body{
     background: lightgoldenrodyellow;
-    background-repeat: no-repeat;
+}
+
+
+
+.mac{
+    height:100vh;
+    background-image: url("macOS.jpeg");
+    background-size: cover;
+
+}
+
+.win{
+    height:100vh;
+    background-image: url("windows.jpeg");
     background-size: cover;
 }
+
+
+
