@@ -35,17 +35,32 @@
 
 
     // creating a bullet
-    function createBullet() {
-        bullet = document.createElement('div');
-        bullet.className = 'bullet';
-        el.appendChild(bullet);
-    }
-    //get out a bullet
-    function getOutBullet () {
-        el.removeChild(bullet);
-    }
+            function createBullet1() {
+                bullet1 = document.createElement('div');
+                bullet1.className = 'bullet1';
+                el.appendChild(bullet1);
+            }
+            //get out a bullet
+            function getOutBullet1 () {
+                el.removeChild(bullet1);
+            }
 
-    var KEYCODE_LEFT = 37;
+            // creating a bullet
+            function createBullet2() {
+                bullet2 = document.createElement('div');
+                bullet2.className = 'bullet2';
+                el.appendChild(bullet2);
+            }
+            //get out a bullet
+            function getOutBullet2 () {
+                el.removeChild(bullet2);
+            }
+
+
+
+
+
+            var KEYCODE_LEFT = 37;
     var KEYCODE_RIGHT = 39;
     var KEYCODE_DOWN = 40;
     var KEYCODE_UP = 38;
@@ -110,12 +125,23 @@
 
     //shooting
     if (e.keyCode === KEYCODE_ENTER || e.keyCode === KEYCODE_SPACE) {
-    createBullet();
+    createBullet1();
     setTimeout(function () {
-        document.getElementsByClassName('bullet')[0].classList.add('bulletOut');
+        document.getElementsByClassName('bullet1')[0].classList.add('bulletOut1');
      playAudioshoot();
     }, .1);
-    setTimeout(getOutBullet, 150);
+    setTimeout(getOutBullet1, 150);
         }
 
-};
+            //shooting
+            if (e.keyCode === KEYCODE_ENTER || e.keyCode === KEYCODE_SPACE) {
+                createBullet2();
+                setTimeout(function () {
+                    document.getElementsByClassName('bullet2')[0].classList.add('bulletOut2');
+                    playAudioshoot();
+                }, .1);
+                setTimeout(getOutBullet2, 150);
+            }
+
+
+        };

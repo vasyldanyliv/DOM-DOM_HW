@@ -21,21 +21,34 @@ div#player {
 
 
 
-.bullet {
-    width: 12px;
-    height: 25px;
+.bullet1 {
+    width: 8px;
+    height: 18px;
     background: red;
-    -moz-border-radius: 12px / 25px;
-    -webkit-border-radius: 12px / 25px;
-    border-radius: 12px / 25px;
+    -moz-border-radius: 8px / 18px;
+    -webkit-border-radius: 8px / 18px;
+    border-radius: 8px / 18px;
     position: absolute;
-    top: 20px;
+    top: 25px;
     left: 10px;
     transition: all .4s linear;
 }
 
 
-.bulletOut {
+.bullet2 {
+    width: 8px;
+    height: 18px;
+    background: red;
+    -moz-border-radius: 8px / 18px;
+    -webkit-border-radius: 8px / 18px;
+    border-radius: 8px / 18px;
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    transition: all .4s linear;
+}
+
+.bulletOut1 , .bulletOut2 {
     background-image: url("ef.png");
     top: 7000px;
     width: 100px;
