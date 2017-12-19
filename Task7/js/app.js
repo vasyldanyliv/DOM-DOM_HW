@@ -1,8 +1,9 @@
 
 
-var addUser = (function () {
-    var m = {};
-
+    var salaries = [];
+    var sum =0;
+    var addUser = (function () {
+    var module = {};
 
     var ul = document.createElement('ul');
     ul.setAttribute('class', 'employeeList');
@@ -11,12 +12,10 @@ var addUser = (function () {
     var li = document.createElement('li');
     ul.appendChild(li);
 
-
     var firstName = document.createElement('input');
-    firstName.setAttribute('name', 'FirsName');
-    firstName.setAttribute('class', 'person1');
+    firstName.setAttribute('class', 'name');
     firstName.setAttribute('type', 'text');
-    firstName.setAttribute('placeholder', 'Your firstName');
+    firstName.setAttribute('placeholder', 'Enter your first name');
 
     var firstNameSpan = document.createElement('span');
     firstNameSpan.setAttribute('class', 'employeeFirstName');
@@ -25,10 +24,9 @@ var addUser = (function () {
 
 
     var lastName = document.createElement('input');
-    lastName.setAttribute('name', 'LastName');
-    lastName.setAttribute('class', 'person2');
+    lastName.setAttribute('class', 'surname');
     lastName.setAttribute('type', 'text');
-    lastName.setAttribute('placeholder', 'Your lastName');
+    lastName.setAttribute('placeholder', 'Enter your last name');
 
 
     var lastNameSpan = document.createElement('span');
@@ -38,29 +36,24 @@ var addUser = (function () {
 
 
     var salary = document.createElement('input');
-    salary.setAttribute('name', 'Salary');
-    salary.setAttribute('class', 'Salary1');
+    salary.setAttribute('class', 'salary');
     salary.setAttribute('type', 'text');
-    salary.setAttribute('placeholder', 'Your salary per month');
-
+    salary.setAttribute('placeholder', 'Enter your salary per month');
 
     var salarySpan = document.createElement('span');
     salarySpan.setAttribute('class', 'employeeSalary');
     salarySpan.appendChild(salary);
     li.appendChild(salarySpan);
 
-
     var possition = document.createElement('input');
-    possition.setAttribute('name', 'Possition');
+    possition.setAttribute('name', 'possition');
     possition.setAttribute('type', 'text');
-    possition.setAttribute('placeholder', 'Your possition');
-
+    possition.setAttribute('placeholder', 'Enter your possition');
 
     var possitionSpan = document.createElement('span');
     possitionSpan.setAttribute('class', 'employeePosition');
     possitionSpan.appendChild(possition);
     li.appendChild(possitionSpan);
-
 
     var button = document.createElement('input');
     button.setAttribute('type', 'button');
@@ -72,7 +65,7 @@ var addUser = (function () {
     var numbersOfEmployees = document.createElement('input');
     numbersOfEmployees.setAttribute('name', 'NumbersOfEmployees');
     numbersOfEmployees.setAttribute('type', 'text');
-    numbersOfEmployees.setAttribute('placeholder', 'limit the employees');
+    numbersOfEmployees.setAttribute('placeholder', 'Enter the limit of employees');
     numbersOfEmployees.setAttribute('id', 'empCount');
     document.body.appendChild(numbersOfEmployees);
 
@@ -80,22 +73,17 @@ var addUser = (function () {
 
     var update = document.createElement('input');
     update.setAttribute('type', 'button');
-    update.setAttribute('class', 'Update');
     update.setAttribute('value', 'Update limit of employees');
-    update.setAttribute('id', 'Update1');
+    update.setAttribute('id', 'update');
     document.body.appendChild(update);
 
 
-    m.init = function () {
+    module.init = function () {
         button
             .addEventListener('click', addNewEmployee);
-
     };
 
     function addNewEmployee(click) {
-
-
-
 
         // valid the firstName
         if (!firstName.value.match(/^[a-zA-Z ]+$/)) {
@@ -103,9 +91,7 @@ var addUser = (function () {
             click.preventDefault();
             firstName.focus();
             return false;
-
         }
-
 
         // valid the lasttName
         if (!lastName.value.match(/^[a-zA-Z ]+$/)) {
@@ -113,43 +99,40 @@ var addUser = (function () {
             click.preventDefault();
             lastName.focus();
             return false;
-
         }
 
         // validation the salary per month:
         if (!salary.value.match(/^[0-9]+$/) || salary.value > Infinity || salary.value < 0) {
-
             alert("Please provide your correct salary/month. That must only contain the  numbers!");
             click.preventDefault();
             salary.focus() ;
             return false;
-
         }
 
-
         // validation the possition:
-
         if (!possition.value.match(/^[a-zA-Z ]+$/)) {
             alert("Please provide your correct possition ");
             // click.preventDefault();
             possition.focus();
             return false;
-
         }
-
-
-
-        // var list = document.createElement('ul');
-        // list.setAttribute('class', 'Added users');
-        // added user to the list
 
         var entry = document.createElement('li');
         entry.setAttribute('class', "unitLi");
         document.body.appendChild(entry);
-         // list.appendChild(entry);
-
         entry.appendChild(document.createTextNode(firstName.value + ' ' + lastName.value + ' ' + salary.value
             + '$' + ' ' + possition.value));
+
+        function avarsalary() {
+            salaries = document.getElementsByClassName("salary");
+            console.log('salaries', salaries);
+            for (var i=0; i < salaries.length; i++) {
+                sum += parseInt(salaries[i].value);
+            }
+            var x = sum / (salaries.length);
+            console.log('avarage salary',x);
+        }
+        avarsalary();
 
         // clear fields after added;
         firstName.value = null;
@@ -157,40 +140,37 @@ var addUser = (function () {
         salary.value = null;
         possition.value = null;
 
-
-
-
      // limit of numbers if employees
         function count() {
-
             alert('The numbers of employees : '+ $('li.unitLi').length  );
-
-
             if(numbersOfEmployees.value) {
-
                 if ($('li.unitLi').length >= numbersOfEmployees.value )  {
-                    alert('Dont allow greater than ' + numbersOfEmployees.value + ' employees. You can increase the staff limit above');
+                    alert('Don`t allow greater than ' + numbersOfEmployees.value + ' employees. You can increase the staff limit above');
                     button.disabled = true;
+                    firstName.disabled = true;
                 }
-
             }
-
             else if ($('li.unitLi').length >= 10){
                 button.disabled = true;
-                alert('Dont allow greater than 10  employees. You can increase the staff limit above');
+                firstName.disabled = true;
+                alert('Don`t allow greater than 10  employees. You can increase the staff limit above');
             }
-
-
         }
         count();
 
-
+        // reset te limit of empoyees :
+        update.addEventListener('click', function () {
+            if ($('li.unitLi').length <= numbersOfEmployees.value ){
+                button.disabled = false;
+                firstName.disabled = false;
+            }
+        });
 
 
         //  prevent duplicates of name
         {    $(function(){
 
-            $('input[class="person1"]').keyup(function(){
+            $('input[class="name"]').keyup(function(){
 
                 var searchText = $(this).val();
                 $('li').each(function(){
@@ -199,26 +179,20 @@ var addUser = (function () {
                        if( showCurrentLi = currentLiText.indexOf(searchText) === -1){
                            button.disabled = false;
                        }
-
                        else {
                            button.disabled = true;
 
                        }
-                        // showCurrentLi = currentLiText ;
-
-                    // $(this).toggle(showCurrentLi);
-
                 });
             });
 
         });
         }
 
-
         //  prevent duplicates of Surname
-        {    $(function(){
-
-            $('input[class="person2"]').keyup(function(){
+        {
+            $(function(){
+            $('input[class="surname"]').keyup(function(){
 
                 var searchText = $(this).val();
                 $('li').each(function(){
@@ -227,51 +201,20 @@ var addUser = (function () {
                     if( showCurrentLi = currentLiText.indexOf(searchText) === -1){
                         button.disabled = false;
                     }
-
                     else {
                         button.disabled = true;
 
                     }
-                    // showCurrentLi = currentLiText ;
-
-                    // $(this).toggle(showCurrentLi);
-
                 });
             });
 
         });
-        }
 
-
-
-                    // // avarage salary
-                    // function  sum(){
-                    //     $(document).ready(function(){
-                    //         var test_qty = 0;
-                    //         $(".Salary1").each(function(){
-                    //             test_qty += parseInt($(this).val());
-                    //             console.log(test_qty);
-                    //         });
-                    //     });
-                    // }
-                    // sum();
-
-
-
-        // reset te limit of empoyees :
-        update.addEventListener('click', function () {
-            if ($('li.unitLi').length <= numbersOfEmployees.value ){
-                button.disabled = false;
-            }
-
-        });
-
+         }
     }
+        return module;
 
-
-return m;
-
-}());
+})();
 addUser.init();
 
 
