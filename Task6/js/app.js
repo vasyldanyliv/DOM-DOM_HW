@@ -1,9 +1,8 @@
 
-        document.getElementById('player').style.top = '300px';
-        document.getElementById('player').style.left = '500px';
+document.getElementById('player').style.top = '300px';
+document.getElementById('player').style.left = '500px';
 
-
-        document.body.onkeydown = function (e) {
+document.body.onkeydown = function (e) {
 
     var el = document.getElementById('player');
 
@@ -22,45 +21,38 @@
     }
 
     //audio rotate-zoom
-
     function playAudioZoom() {
         zoomZoom.play();
     }
 
     //audio shooting:
-
     function playAudioshoot() {
         shoot.play();
     }
 
+    // creating a bullet
+    function createBullet1() {
+        bullet1 = document.createElement('div');
+        bullet1.className = 'bullet1';
+        el.appendChild(bullet1);
+    }
+    //get out a bullet
+    function getOutBullet1 () {
+        el.removeChild(bullet1);
+    }
 
     // creating a bullet
-            function createBullet1() {
-                bullet1 = document.createElement('div');
-                bullet1.className = 'bullet1';
-                el.appendChild(bullet1);
-            }
-            //get out a bullet
-            function getOutBullet1 () {
-                el.removeChild(bullet1);
-            }
+    function createBullet2() {
+        bullet2 = document.createElement('div');
+        bullet2.className = 'bullet2';
+        el.appendChild(bullet2);
+    }
+    //get out a bullet
+    function getOutBullet2 () {
+        el.removeChild(bullet2);
+    }
 
-            // creating a bullet
-            function createBullet2() {
-                bullet2 = document.createElement('div');
-                bullet2.className = 'bullet2';
-                el.appendChild(bullet2);
-            }
-            //get out a bullet
-            function getOutBullet2 () {
-                el.removeChild(bullet2);
-            }
-
-
-
-
-
-            var KEYCODE_LEFT = 37;
+    var KEYCODE_LEFT = 37;
     var KEYCODE_RIGHT = 39;
     var KEYCODE_DOWN = 40;
     var KEYCODE_UP = 38;
@@ -70,7 +62,6 @@
     // when are press <=
     if (e.keyCode === KEYCODE_LEFT) {
         el.style.left = (parseInt(el.style.left) - 10) + 'px';
-
         // rotate left tank gun
         el.style.transform = "rotate(90deg)";
 
@@ -93,7 +84,6 @@
         playAudioZoom();
     }
 
-
     // when press UP =>
     else if (e.keyCode === KEYCODE_UP) {
         el.style.top = (parseInt(el.style.top) - 10) + 'px';
@@ -105,7 +95,6 @@
         playAudioZoom();
     }
 
-
     // when press DOWN =>
     else if (e.keyCode === KEYCODE_DOWN) {
         el.style.top = (parseInt(el.style.top) + 10) + 'px';
@@ -116,32 +105,30 @@
         playAudioZoom();
     }
 
-
     // top block area
     if (el.style.top <= '0px') {
         el.style.top = (parseInt(el.style.top) + 12) + 'px';
         playAudioBum();
     }
+    //shooting
+    if (e.keyCode === KEYCODE_ENTER || e.keyCode === KEYCODE_SPACE) {
+        createBullet1();
+        setTimeout(function () {
+            document.getElementsByClassName('bullet1')[0].classList.add('bulletOut1');
+            playAudioshoot();
+        }, .1);
+        setTimeout(getOutBullet1, 150);
+    }
 
     //shooting
     if (e.keyCode === KEYCODE_ENTER || e.keyCode === KEYCODE_SPACE) {
-    createBullet1();
-    setTimeout(function () {
-        document.getElementsByClassName('bullet1')[0].classList.add('bulletOut1');
-     playAudioshoot();
-    }, .1);
-    setTimeout(getOutBullet1, 150);
-        }
-
-            //shooting
-            if (e.keyCode === KEYCODE_ENTER || e.keyCode === KEYCODE_SPACE) {
-                createBullet2();
-                setTimeout(function () {
-                    document.getElementsByClassName('bullet2')[0].classList.add('bulletOut2');
-                    playAudioshoot();
-                }, .1);
-                setTimeout(getOutBullet2, 150);
-            }
+        createBullet2();
+        setTimeout(function () {
+            document.getElementsByClassName('bullet2')[0].classList.add('bulletOut2');
+            playAudioshoot();
+        }, .1);
+        setTimeout(getOutBullet2, 150);
+    }
 
 
-        };
+};

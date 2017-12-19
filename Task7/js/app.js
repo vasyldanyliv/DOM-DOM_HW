@@ -1,5 +1,3 @@
-
-
     var salaries = [];
     var sum =0;
     var addUser = (function () {
@@ -22,18 +20,15 @@
     firstNameSpan.appendChild(firstName);
     li.appendChild(firstNameSpan);
 
-
     var lastName = document.createElement('input');
     lastName.setAttribute('class', 'surname');
     lastName.setAttribute('type', 'text');
     lastName.setAttribute('placeholder', 'Enter your last name');
 
-
     var lastNameSpan = document.createElement('span');
     lastNameSpan.setAttribute('class', 'employeeLastName');
     lastNameSpan.appendChild(lastName);
     li.appendChild(lastNameSpan);
-
 
     var salary = document.createElement('input');
     salary.setAttribute('class', 'salary');
@@ -69,14 +64,11 @@
     numbersOfEmployees.setAttribute('id', 'empCount');
     document.body.appendChild(numbersOfEmployees);
 
-
-
     var update = document.createElement('input');
     update.setAttribute('type', 'button');
     update.setAttribute('value', 'Update limit of employees');
     update.setAttribute('id', 'update');
     document.body.appendChild(update);
-
 
     module.init = function () {
         button
@@ -93,7 +85,7 @@
             return false;
         }
 
-        // valid the lasttName
+        // valid the lastName
         if (!lastName.value.match(/^[a-zA-Z ]+$/)) {
             alert("Please provide your correct lastName ");
             click.preventDefault();
@@ -116,13 +108,14 @@
             possition.focus();
             return false;
         }
-
+        // list of users
         var entry = document.createElement('li');
         entry.setAttribute('class', "unitLi");
         document.body.appendChild(entry);
         entry.appendChild(document.createTextNode(firstName.value + ' ' + lastName.value + ' ' + salary.value
             + '$' + ' ' + possition.value));
 
+        // avarage salary
         function avarsalary() {
             salaries = document.getElementsByClassName("salary");
             console.log('salaries', salaries);
@@ -140,7 +133,7 @@
         salary.value = null;
         possition.value = null;
 
-     // limit of numbers if employees
+        // limit of numbers if employees
         function count() {
             alert('The numbers of employees : '+ $('li.unitLi').length  );
             if(numbersOfEmployees.value) {
@@ -176,28 +169,6 @@
                 $('li').each(function(){
 
                     var currentLiText = $(this).text();
-                       if( showCurrentLi = currentLiText.indexOf(searchText) === -1){
-                           button.disabled = false;
-                       }
-                       else {
-                           button.disabled = true;
-
-                       }
-                });
-            });
-
-        });
-        }
-
-        //  prevent duplicates of Surname
-        {
-            $(function(){
-            $('input[class="surname"]').keyup(function(){
-
-                var searchText = $(this).val();
-                $('li').each(function(){
-
-                    var currentLiText = $(this).text();
                     if( showCurrentLi = currentLiText.indexOf(searchText) === -1){
                         button.disabled = false;
                     }
@@ -209,10 +180,32 @@
             });
 
         });
+        }
 
-         }
+        //  prevent duplicates of Surname
+        {
+            $(function(){
+                $('input[class="surname"]').keyup(function(){
+
+                    var searchText = $(this).val();
+                    $('li').each(function(){
+
+                        var currentLiText = $(this).text();
+                        if( showCurrentLi = currentLiText.indexOf(searchText) === -1){
+                            button.disabled = false;
+                        }
+                        else {
+                            button.disabled = true;
+
+                        }
+                    });
+                });
+
+            });
+
+        }
     }
-        return module;
+    return module;
 
 })();
 addUser.init();

@@ -1,6 +1,5 @@
-    body{
+body {
         background: url("backg.jpeg");
-
     }
 
 form{
@@ -9,7 +8,8 @@ form{
     align-items: center;
 }
 
-input[type=text]{
+input[type=text]
+{
     width: 20%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -19,7 +19,8 @@ input[type=text]{
     box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type=submit]
+{
     width: 20%;
     background-color: #4CAF50;
     color: white;
@@ -30,7 +31,7 @@ input[type=submit] {
     cursor: pointer;
 }
 
-
-input[type=submit]:hover {
+input[type=submit]:hover
+{
     background-color: #45a049;
 }

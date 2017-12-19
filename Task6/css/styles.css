@@ -1,5 +1,4 @@
 
-
 .area{
     background-image: url("map.jpeg");
     background-size: cover;
@@ -15,11 +14,8 @@ div#player {
     background-repeat: no-repeat;
     width:40px;
     height:60px;
-    /*transition: all linear .1s;*/
     position: absolute;
 }
-
-
 
 .bullet1 {
     width: 8px;
@@ -33,7 +29,6 @@ div#player {
     left: 10px;
     transition: all .4s linear;
 }
-
 
 .bullet2 {
     width: 8px;
