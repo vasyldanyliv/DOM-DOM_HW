@@ -1,6 +1,7 @@
-    var salaries = [];
-    var sum =0;
+
+    var sum = 0;
     var addUser = (function () {
+        var salaries = [];
     var module = {};
 
     var ul = document.createElement('ul');
@@ -153,29 +154,20 @@
 
         // reset te limit of empoyees :
         update.addEventListener('click', function () {
-            if ($('li.unitLi').length <= numbersOfEmployees.value ){
+            if ($('li.unitLi').length < numbersOfEmployees.value ){
                 button.disabled = false;
                 firstName.disabled = false;
             }
         });
 
-
         //  prevent duplicates of name
         {    $(function(){
-
             $('input[class="name"]').keyup(function(){
-
                 var searchText = $(this).val();
-                $('li').each(function(){
-
-                    var currentLiText = $(this).text();
-                    if( showCurrentLi = currentLiText.indexOf(searchText) === -1){
-                        button.disabled = false;
-                    }
-                    else {
-                        button.disabled = true;
-
-                    }
+                  $('li').each(function(){
+                     var currentLiText = $(this).text();
+                       showCurrentLi = currentLiText.indexOf(searchText) === -1 ? button.disabled = false :
+                           button.disabled = true;
                 });
             });
 
@@ -186,28 +178,18 @@
         {
             $(function(){
                 $('input[class="surname"]').keyup(function(){
-
                     var searchText = $(this).val();
                     $('li').each(function(){
-
                         var currentLiText = $(this).text();
-                        if( showCurrentLi = currentLiText.indexOf(searchText) === -1){
-                            button.disabled = false;
-                        }
-                        else {
-                            button.disabled = true;
-
-                        }
+                            showCurrentLi = currentLiText.indexOf(searchText) === -1 ? button.disabled = false :
+                                button.disabled = true;
                     });
                 });
-
             });
-
         }
     }
     return module;
-
-})();
+    })();
 addUser.init();
 
 
