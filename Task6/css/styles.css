@@ -1,6 +1,6 @@
 
 .area{
-    background-image: url("map.jpeg");
+    background-image: url("../images/map.jpeg");
     background-size: cover;
     min-height:98vh;
     min-width:99%;
@@ -10,7 +10,7 @@
 }
 
 div#player {
-    background-image: url("tank.png");
+    background-image: url("../images/tank.png");
     background-repeat: no-repeat;
     width:40px;
     height:60px;
@@ -44,7 +44,7 @@ div#player {
 }
 
 .bulletOut1 , .bulletOut2 {
-    background-image: url("ef.png");
+    background-image: url("../images/ef.png");
     top: 7000px;
     width: 100px;
     height: 25px;
