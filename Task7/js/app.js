@@ -1,9 +1,8 @@
 
     var sum = 0;
+    var salaries = [];
     var addUser = (function () {
-        var salaries = [];
     var module = {};
-
     var ul = document.createElement('ul');
     ul.setAttribute('class', 'employeeList');
     document.body.appendChild(ul);
@@ -34,6 +33,7 @@
     var salary = document.createElement('input');
     salary.setAttribute('class', 'salary');
     salary.setAttribute('type', 'text');
+    salary.setAttribute('id','salary');
     salary.setAttribute('placeholder', 'Enter your salary per month');
 
     var salarySpan = document.createElement('span');
@@ -79,7 +79,7 @@
     function addNewEmployee(click) {
 
         // valid the firstName
-        if (!firstName.value.match(/^[a-zA-Z ]+$/)) {
+        if (!firstName.value.match(/^[a-zA-Z]+$/) || firstName === ' ') {
             alert("Please provide your correct firstName ");
             click.preventDefault();
             firstName.focus();
@@ -87,7 +87,7 @@
         }
 
         // valid the lastName
-        if (!lastName.value.match(/^[a-zA-Z ]+$/)) {
+        if (!lastName.value.match(/^[a-zA-Z]+$/) || lastName ===' ') {
             alert("Please provide your correct lastName ");
             click.preventDefault();
             lastName.focus();
@@ -103,30 +103,38 @@
         }
 
         // validation the possition:
-        if (!possition.value.match(/^[a-zA-Z ]+$/)) {
+        if (!possition.value.match(/^[a-zA-Z]+$/)) {
             alert("Please provide your correct possition ");
             // click.preventDefault();
             possition.focus();
             return false;
         }
+
+        // avarage salary
+        function avarsalary() {
+            function getAvarageSalary(currentResult, currentValue) {
+                return currentResult + currentValue;
+            }
+            salaries.push(parseInt(salary.value));
+            var totalSalary = salaries.reduce(getAvarageSalary);
+            var avarSalary = totalSalary / (salaries.length);
+            alert('Avarage salary is ' + avarSalary.toFixed(2) + ' $');
+
+            //  check avarage salary >2000$
+            if (avarSalary >=2000){
+                button.disabled = true;
+                firstName.disabled = true;
+                alert('Limit avarage salary');
+            }
+        }
+        avarsalary();
+
         // list of users
         var entry = document.createElement('li');
         entry.setAttribute('class', "unitLi");
         document.body.appendChild(entry);
         entry.appendChild(document.createTextNode(firstName.value + ' ' + lastName.value + ' ' + salary.value
             + '$' + ' ' + possition.value));
-
-        // avarage salary
-        function avarsalary() {
-            salaries = document.getElementsByClassName("salary");
-            console.log('salaries', salaries);
-            for (var i=0; i < salaries.length; i++) {
-                sum += parseInt(salaries[i].value);
-            }
-            var x = sum / (salaries.length);
-            console.log('avarage salary',x);
-        }
-        avarsalary();
 
         // clear fields after added;
         firstName.value = null;
@@ -173,7 +181,6 @@
 
         });
         }
-
         //  prevent duplicates of Surname
         {
             $(function(){
