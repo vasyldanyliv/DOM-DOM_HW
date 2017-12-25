@@ -110,6 +110,14 @@
             return false;
         }
 
+        // limit of numbers of employees when number of limit set after adding users
+        if(numbersOfEmployees.value) {
+            if ($('li.unitLi').length >= numbersOfEmployees.value || $('li.unitLi').length >= 10 ) {
+                alert('Limit of employees. You can increase the staff limit below');
+          return false;
+            }
+        }
+
         // avarage salary
         function avarsalary() {
             function getAvarageSalary(currentResult, currentValue) {
@@ -142,12 +150,12 @@
         salary.value = null;
         possition.value = null;
 
-        // limit of numbers if employees
+        // limit of numbers of employees
         function count() {
             alert('The numbers of employees : '+ $('li.unitLi').length  );
             if(numbersOfEmployees.value) {
                 if ($('li.unitLi').length >= numbersOfEmployees.value )  {
-                    alert('Don`t allow greater than ' + numbersOfEmployees.value + ' employees. You can increase the staff limit above');
+                    alert('Don`t allow greater than ' + numbersOfEmployees.value + ' employees. You can increase the staff limit below');
                     button.disabled = true;
                     firstName.disabled = true;
                 }
@@ -155,7 +163,7 @@
             else if ($('li.unitLi').length >= 10){
                 button.disabled = true;
                 firstName.disabled = true;
-                alert('Don`t allow greater than 10  employees. You can increase the staff limit above');
+                alert('Don`t allow greater than 10  employees. You can increase the staff limit below');
             }
         }
         count();
