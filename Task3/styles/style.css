@@ -1,0 +1,40 @@
+
+*{
+    margin:0;
+}
+
+.download-message {
+    display: none;
+}
+
+
+a{
+    font-size: 20px;
+    color: lightcoral;
+}
+
+a:hover {
+    color: greenyellow;
+}
+
+body{
+    background: lightgoldenrodyellow;
+}
+
+
+
+.mac{
+    height:100vh;
+    background-image: url("../images/macOS.jpeg");
+    background-size: cover;
+
+}
+
+.win{
+    height:100vh;
+    background-image: url("../images/windows.jpeg");
+    background-size: cover;
+}
+
+
+

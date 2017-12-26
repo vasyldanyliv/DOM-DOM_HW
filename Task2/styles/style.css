@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    background-image: url("../images/cloud.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+}
+
+#content1 {
+    background-image: url("../images/cloud_up.jpeg");
+    margin: 0;
+    height: 350px;
+    position: relative;
+}
+
+#content2 {
+    margin: 350px 0 0 0;
+    height: 250px;
+    background: blue;
+    position: relative;
+    color: yellow;
+}
+
+#parallax {
+    background: url('http://www.verticalworld.net/school/programs/uploads/pics/program_108_1.jpg');
+    background-repeat: no-repeat;
+    position: fixed;
+    left: 25%;
+    height: 300%;
+    width:100%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*h1 {*/
+    /*margin: 0;*/
+/*}*/
+/*body {*/
+    /*margin: 0;*/
+/*}*/
+
+/*#parallax {*/
+    /*background: red;*/
+
+    /*background: url(http://www.verticalworld.net/school/programs/uploads/pics/program_108_1.jpg);*/
+    /*height: 350px;*/
+    /*position: fixed;*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*top: 0;*/
+/*}*/
+
+
+
+
+/*.ctn1 {*/
+    /*margin: 0;*/
+    /*height: 250px;*/
+    /*background: lightblue;*/
+    /*position: relative;*/
+/*}*/
+
+/*.ctn2 {*/
+    /*margin: 300px 0 0 0;*/
+    /*height: 600px;*/
+    /*background: lightgreen;*/
+    /*position: relative;*/
+/*}*/
+
+
+
+/*.content {*/
+    /*background: blue;*/
+    /*height: 100%;*/
+    /*!* Create the parallax scrolling effect *!*/
+    /*background-attachment: fixed;*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+/*}*/
+
+/*.ctn1{*/
+    /*background: lightblue;*/
+/*}*/
+
+/*#parallax {*/
+    /*background: red;*/
+
+    /*background: url(http://www.verticalworld.net/school/programs/uploads/pics/program_108_1.jpg);*/
+    /*height:100%;*/
+    /*background-repeat: no-repeat;*/
+/*}*/
+
+
+
+
