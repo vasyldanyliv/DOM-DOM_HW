@@ -54,13 +54,12 @@
         }
 
         function effect1() {
-            var image = document.body.style.backgroundImage = "url('Congrat.gif')";
+            var image = document.body.style.backgroundImage = "url('./images/Congrat.gif')";
         }
 
         function effect2() {
-            var image = document.body.style.backgroundImage = "url('backg.jpeg')";
+            var image = document.body.style.backgroundImage = "url('./images/backg.jpeg')";
         }
-
 
         // checking and validation a date:
         {
